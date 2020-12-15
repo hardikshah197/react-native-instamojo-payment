@@ -1,10 +1,12 @@
 import React from 'react';
-import { Text, WebView } from 'react-native';
+import { Text } from 'react-native';
+import {  WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
 
 export default class InstamojoPaymentComponent extends React.Component {
 
   onNavigationChange(webViewState) {
+    
     let hitUrl = webViewState.url;
     console.log(hitUrl);
     if (hitUrl.includes(this.props.redirect_url)) {
@@ -35,7 +37,9 @@ export default class InstamojoPaymentComponent extends React.Component {
   );
   }
 }
+
 InstamojoPaymentComponent.propTypes = {
+  
   redirect_url: PropTypes.string.isRequired,
   instamojo_long_url: PropTypes.string.isRequired,
   callback_on_completion:PropTypes.func
